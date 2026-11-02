@@ -19,4 +19,4 @@ As I transition from Network Engineering into Penetration Testing, understanding
 1. Download and install Cisco Packet Tracer.
 2. Download the `.pkt` file from this repository.
 3. Open the file in Packet Tracer to view the configuration, run the simulation, or test connectivity using the command prompt.
-4. 📖 **[Click here to read the full Project Write-up](./docs/PROJECT_WRITEUP.md)**
+4. 📖 **[Click here to read the full Project Write-up](./docs/Norbetino-Networking-Project.md)**
