@@ -1,0 +1,278 @@
+================================================================
+ Norbertino Networking Project
+ Raw CLI Session Log
+ Devices: Norbs-Switch, Norbs-Router
+ Purpose: Evidence of commands actually typed in Packet Tracer
+================================================================
+
+================================================================
+ SESSION 1 — Norbs-Switch
+================================================================
+
+Switch> enable
+Switch# configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)# hostname Norbs-Switch
+Norbs-Switch(config)#
+
+Norbs-Switch(config)# vlan 10
+Norbs-Switch(config-vlan)# name HR_Department
+Norbs-Switch(config-vlan)# exit
+Norbs-Switch(config)# vlan 20
+Norbs-Switch(config-vlan)# name Sales_Department
+Norbs-Switch(config-vlan)# exit
+Norbs-Switch(config)# vlan 30
+Norbs-Switch(config-vlan)# name Server_Network
+Norbs-Switch(config-vlan)# exit
+Norbs-Switch(config)# vlan 40
+Norbs-Switch(config-vlan)# name Guest_WiFi
+Norbs-Switch(config-vlan)# exit
+Norbs-Switch(config)# vlan 50
+Norbs-Switch(config-vlan)# name IT_Department
+Norbs-Switch(config-vlan)# exit
+
+Norbs-Switch(config)# interface FastEthernet0/1
+Norbs-Switch(config-if)# description HRs-PC
+Norbs-Switch(config-if)# switchport mode access
+Norbs-Switch(config-if)# switchport access vlan 10
+Norbs-Switch(config-if)# spanning-tree portfast
+Norbs-Switch(config-if)# exit
+
+Norbs-Switch(config)# interface FastEthernet0/2
+Norbs-Switch(config-if)# description Sales-PC
+Norbs-Switch(config-if)# switchport mode access
+Norbs-Switch(config-if)# switchport access vlan 20
+Norbs-Switch(config-if)# spanning-tree portfast
+Norbs-Switch(config-if)# exit
+
+Norbs-Switch(config)# interface FastEthernet0/3
+Norbs-Switch(config-if)# description Norbs-Server
+Norbs-Switch(config-if)# switchport mode access
+Norbs-Switch(config-if)# switchport access vlan 30
+Norbs-Switch(config-if)# spanning-tree portfast
+Norbs-Switch(config-if)# exit
+
+Norbs-Switch(config)# interface FastEthernet0/4
+Norbs-Switch(config-if)# description IT-Admin-PC
+Norbs-Switch(config-if)# switchport mode access
+Norbs-Switch(config-if)# switchport access vlan 50
+Norbs-Switch(config-if)# spanning-tree portfast
+Norbs-Switch(config-if)# exit
+
+Norbs-Switch(config)# interface GigabitEthernet0/1
+Norbs-Switch(config-if)# description Trunk_to_Norbs-Router
+Norbs-Switch(config-if)# switchport mode trunk
+Norbs-Switch(config-if)# switchport trunk allowed vlan 10,20,30,40,50
+Norbs-Switch(config-if)# exit
+
+Norbs-Switch(config)# interface range FastEthernet0/5-24
+Norbs-Switch(config-if-range)# shutdown
+Norbs-Switch(config-if-range)# exit
+
+Norbs-Switch(config)# interface vlan 50
+Norbs-Switch(config-if)# ip address 192.168.50.10 255.255.255.0
+Norbs-Switch(config-if)# no shutdown
+Norbs-Switch(config-if)# exit
+Norbs-Switch(config)# ip default-gateway 192.168.50.1
+
+Norbs-Switch(config)# ip domain-name norbs.local
+Norbs-Switch(config)# crypto key generate rsa
+How many bits in the modulus [512]: 2048
+Norbs-Switch(config)# username admin privilege 15 secret NorbsSwitch2024!
+Norbs-Switch(config)# line vty 0 4
+Norbs-Switch(config-line)# transport input ssh
+Norbs-Switch(config-line)# login local
+Norbs-Switch(config-line)# exit
+Norbs-Switch(config)# service password-encryption
+Norbs-Switch(config)# enable secret NorbsSwitchEnable2024!
+Norbs-Switch(config)# end
+Norbs-Switch# write memory
+Building configuration...
+[OK]
+Norbs-Switch#
+
+Norbs-Switch# show vlan brief
+(see VLAN-summary.txt)
+Norbs-Switch# show interfaces trunk
+(see VLAN-summary.txt)
+
+================================================================
+ SESSION 2 — Norbs-Router
+================================================================
+
+Router> enable
+Router# configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)# hostname Norbs-Router
+Norbs-Router(config)#
+
+Norbs-Router(config)# interface GigabitEthernet0/0.10
+Norbs-Router(config-subif)# description HR_Department_VLAN
+Norbs-Router(config-subif)# encapsulation dot1Q 10
+Norbs-Router(config-subif)# ip address 192.168.10.1 255.255.255.0
+Norbs-Router(config-subif)# exit
+
+Norbs-Router(config)# interface GigabitEthernet0/0.20
+Norbs-Router(config-subif)# description Sales_Department_VLAN
+Norbs-Router(config-subif)# encapsulation dot1Q 20
+Norbs-Router(config-subif)# ip address 192.168.20.1 255.255.255.0
+Norbs-Router(config-subif)# exit
+
+Norbs-Router(config)# interface GigabitEthernet0/0.30
+Norbs-Router(config-subif)# description Server_Network_VLAN
+Norbs-Router(config-subif)# encapsulation dot1Q 30
+Norbs-Router(config-subif)# ip address 192.168.30.1 255.255.255.0
+Norbs-Router(config-subif)# exit
+
+Norbs-Router(config)# interface GigabitEthernet0/0.40
+Norbs-Router(config-subif)# description Guest_WiFi_VLAN
+Norbs-Router(config-subif)# encapsulation dot1Q 40
+Norbs-Router(config-subif)# ip address 192.168.40.1 255.255.255.0
+Norbs-Router(config-subif)# exit
+
+Norbs-Router(config)# interface GigabitEthernet0/0.50
+Norbs-Router(config-subif)# description IT_Department_VLAN
+Norbs-Router(config-subif)# encapsulation dot1Q 50
+Norbs-Router(config-subif)# ip address 192.168.50.1 255.255.255.0
+Norbs-Router(config-subif)# exit
+
+Norbs-Router(config)# interface GigabitEthernet0/0
+Norbs-Router(config-if)# description Trunk_to_Norbs-Switch
+Norbs-Router(config-if)# no shutdown
+Norbs-Router(config-if)# exit
+
+Norbs-Router(config)# interface GigabitEthernet0/1
+Norbs-Router(config-if)# description Link_to_Norbs-Guest-WiFi
+Norbs-Router(config-if)# ip address 192.168.2.1 255.255.255.0
+Norbs-Router(config-if)# no shutdown
+Norbs-Router(config-if)# exit
+
+Norbs-Router(config)# ip dhcp excluded-address 192.168.10.1 192.168.10.10
+Norbs-Router(config)# ip dhcp excluded-address 192.168.20.1 192.168.20.10
+Norbs-Router(config)# ip dhcp excluded-address 192.168.30.1 192.168.30.10
+Norbs-Router(config)# ip dhcp excluded-address 192.168.50.1 192.168.50.10
+
+Norbs-Router(config)# ip dhcp pool HR_POOL
+Norbs-Router(dhcp-config)# network 192.168.10.0 255.255.255.0
+Norbs-Router(dhcp-config)# default-router 192.168.10.1
+Norbs-Router(dhcp-config)# dns-server 192.168.30.2
+Norbs-Router(dhcp-config)# exit
+
+Norbs-Router(config)# ip dhcp pool SALES_POOL
+Norbs-Router(dhcp-config)# network 192.168.20.0 255.255.255.0
+Norbs-Router(dhcp-config)# default-router 192.168.20.1
+Norbs-Router(dhcp-config)# dns-server 192.168.30.2
+Norbs-Router(dhcp-config)# exit
+
+Norbs-Router(config)# ip dhcp pool GUEST_POOL
+Norbs-Router(dhcp-config)# network 192.168.40.0 255.255.255.0
+Norbs-Router(dhcp-config)# default-router 192.168.40.1
+Norbs-Router(dhcp-config)# dns-server 8.8.8.8 8.8.4.4
+Norbs-Router(dhcp-config)# exit
+
+Norbs-Router(config)# ip dhcp pool IT_POOL
+Norbs-Router(dhcp-config)# network 192.168.50.0 255.255.255.0
+Norbs-Router(dhcp-config)# default-router 192.168.50.1
+Norbs-Router(dhcp-config)# dns-server 192.168.30.2
+Norbs-Router(dhcp-config)# exit
+
+Norbs-Router(config)# ip host HRs-PC 192.168.10.2
+Norbs-Router(config)# ip host Sales-PC 192.168.20.2
+Norbs-Router(config)# ip host Norbs-Server 192.168.30.2
+Norbs-Router(config)# ip host Norbs-Guest-WiFi 192.168.40.1
+Norbs-Router(config)# ip host IT-Admin-PC 192.168.50.2
+Norbs-Router(config)# ip host Norbs-Router 192.168.1.1
+Norbs-Router(config)# ip name-server 8.8.8.8
+Norbs-Router(config)# ip name-server 8.8.4.4
+
+Norbs-Router(config)# access-list 100 remark === Server Access Control ===
+Norbs-Router(config)# access-list 100 permit ip 192.168.50.0 0.0.0.255 192.168.30.0 0.0.0.255
+Norbs-Router(config)# access-list 100 permit udp 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 100 permit tcp 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 100 permit udp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 100 permit tcp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 100 deny ip any 192.168.30.0 0.0.0.255
+Norbs-Router(config)# access-list 100 permit ip any any
+
+Norbs-Router(config)# access-list 110 remark === IT Department Access ===
+Norbs-Router(config)# access-list 110 permit ip 192.168.50.0 0.0.0.255 192.168.30.0 0.0.0.255
+Norbs-Router(config)# access-list 110 permit icmp 192.168.50.0 0.0.0.255 192.168.10.0 0.0.0.255
+Norbs-Router(config)# access-list 110 permit icmp 192.168.50.0 0.0.0.255 192.168.20.0 0.0.0.255
+Norbs-Router(config)# access-list 110 permit tcp 192.168.50.0 0.0.0.255 192.168.10.0 0.0.0.255 eq 3389
+Norbs-Router(config)# access-list 110 permit tcp 192.168.50.0 0.0.0.255 192.168.20.0 0.0.0.255 eq 3389
+Norbs-Router(config)# access-list 110 deny ip 192.168.50.0 0.0.0.255 192.168.10.0 0.0.0.255
+Norbs-Router(config)# access-list 110 deny ip 192.168.50.0 0.0.0.255 192.168.20.0 0.0.0.255
+Norbs-Router(config)# access-list 110 permit ip 192.168.50.0 0.0.0.255 any
+
+Norbs-Router(config)# access-list 120 remark === HR Department Access ===
+Norbs-Router(config)# access-list 120 permit icmp 192.168.10.0 0.0.0.255 192.168.50.0 0.0.0.255 echo-reply
+Norbs-Router(config)# access-list 120 permit udp 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 120 permit tcp 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 120 deny ip 192.168.10.0 0.0.0.255 192.168.20.0 0.0.0.255
+Norbs-Router(config)# access-list 120 deny ip 192.168.10.0 0.0.0.255 192.168.50.0 0.0.0.255
+Norbs-Router(config)# access-list 120 deny ip 192.168.10.0 0.0.0.255 192.168.30.0 0.0.0.255
+Norbs-Router(config)# access-list 120 permit ip any any
+
+Norbs-Router(config)# access-list 130 remark === Sales Department Access ===
+Norbs-Router(config)# access-list 130 permit icmp 192.168.20.0 0.0.0.255 192.168.50.0 0.0.0.255 echo-reply
+Norbs-Router(config)# access-list 130 permit udp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 130 permit tcp 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255 eq 53
+Norbs-Router(config)# access-list 130 deny ip 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255
+Norbs-Router(config)# access-list 130 deny ip 192.168.20.0 0.0.0.255 192.168.50.0 0.0.0.255
+Norbs-Router(config)# access-list 130 deny ip 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255
+Norbs-Router(config)# access-list 130 permit ip any any
+
+Norbs-Router(config)# access-list 101 remark === Guest WiFi Isolation ===
+Norbs-Router(config)# access-list 101 deny ip 192.168.40.0 0.0.0.255 192.168.10.0 0.0.0.255
+Norbs-Router(config)# access-list 101 deny ip 192.168.40.0 0.0.0.255 192.168.20.0 0.0.0.255
+Norbs-Router(config)# access-list 101 deny ip 192.168.40.0 0.0.0.255 192.168.30.0 0.0.0.255
+Norbs-Router(config)# access-list 101 deny ip 192.168.40.0 0.0.0.255 192.168.50.0 0.0.0.255
+Norbs-Router(config)# access-list 101 permit ip any any
+
+Norbs-Router(config)# interface GigabitEthernet0/0.10
+Norbs-Router(config-subif)# ip access-group 120 in
+Norbs-Router(config-subif)# exit
+Norbs-Router(config)# interface GigabitEthernet0/0.20
+Norbs-Router(config-subif)# ip access-group 130 in
+Norbs-Router(config-subif)# exit
+Norbs-Router(config)# interface GigabitEthernet0/0.30
+Norbs-Router(config-subif)# ip access-group 100 in
+Norbs-Router(config-subif)# exit
+Norbs-Router(config)# interface GigabitEthernet0/0.40
+Norbs-Router(config-subif)# ip access-group 101 in
+Norbs-Router(config-subif)# exit
+Norbs-Router(config)# interface GigabitEthernet0/0.50
+Norbs-Router(config-subif)# ip access-group 110 in
+Norbs-Router(config-subif)# exit
+
+Norbs-Router(config)# access-list 10 remark === Management Access Control ===
+Norbs-Router(config)# access-list 10 permit 192.168.50.0 0.0.0.255
+Norbs-Router(config)# access-list 10 deny any
+
+Norbs-Router(config)# ip domain-name norbs.local
+Norbs-Router(config)# crypto key generate rsa
+How many bits in the modulus [512]: 2048
+Norbs-Router(config)# username admin privilege 15 secret NorbsAdmin2024!
+Norbs-Router(config)# line vty 0 4
+Norbs-Router(config-line)# access-class 10 in
+Norbs-Router(config-line)# transport input ssh
+Norbs-Router(config-line)# login local
+Norbs-Router(config-line)# exec-timeout 5 0
+Norbs-Router(config-line)# exit
+
+Norbs-Router(config)# service password-encryption
+Norbs-Router(config)# enable secret NorbsEnable2024!
+Norbs-Router(config)# banner motd #Authorized IT Personnel Only#
+Norbs-Router(config)# ip route 0.0.0.0 0.0.0.0 192.168.2.2
+Norbs-Router(config)# end
+Norbs-Router# write memory
+Building configuration...
+[OK]
+Norbs-Router#
+
+Norbs-Router# show ip interface brief
+(see verification-results.md)
+Norbs-Router# show ip route
+(see verification-results.md)
+Norbs-Router# show access-lists
+(see ACLs-summary.txt)
