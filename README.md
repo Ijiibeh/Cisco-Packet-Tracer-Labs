@@ -3,6 +3,12 @@
 ## 📌 Project Overview
 This repository contains a simulated network infrastructure built using Cisco Packet Tracer. The goal of this project was to design, configure, and troubleshoot a functional network topology, applying core Network Engineering principles.
 
+## 📍 Table of Contents
+- [My Current Focus](#-my-current-focus)
+- [Featured Projects](#-featured-projects)
+- [Tools I am Exploring](#️-tools-i-am-exploring)
+- [How to reach me](#-how-to-reach-me)
+
 ## 🗺️ Topology Diagram
 ![Network Topology](./images/Norbetinos-Network-Setup-Topology.png)
 
