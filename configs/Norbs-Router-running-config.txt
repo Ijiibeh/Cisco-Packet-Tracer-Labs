@@ -1,4 +1,4 @@
-'''
+'''text
 Building configuration...
 Current configuration : 4944 bytes
 !
