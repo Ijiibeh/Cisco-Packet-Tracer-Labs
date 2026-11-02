@@ -15,7 +15,7 @@ A secure, VLAN-segmented small-office network built in Cisco Packet Tracer.
 | Path | Contents |
 |------|----------|
 | `docs/PROJECT_WRITEUP.md` | Full project write-up (objective, requirements, challenges, testing) |
-| `docs/verification-results.md` | Standalone test results *[View Verification Results](./configs/verification-results.md)* |
+| `docs/verification-results.md` | Standalone test results *[View Verification Results](./docs/verification-results.md)* |
 | `images/Norbetinos-Network-Setup-Topology.png` | Topology diagram |
 | `configs/` | `show running-config` files, ACL summary, VLAN summary |
 | `configs/CLI-session-log.txt` | Raw typed command session (evidence) *[View Raw CLI Session Log](./configs/CLI-session-log.txt)* |
