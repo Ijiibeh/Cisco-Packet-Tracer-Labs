@@ -16,7 +16,7 @@ This repository contains a simulated network infrastructure built using Cisco Pa
 *   **Routing & Switching:** [Go to VLAN And IP Schemeing](docs/Norbetino-Networking-Project.md#22-vlan-and-ip-scheme)
 *   **IP Addressing:** [Go to VLAN And IP Schemeing](docs/Norbetino-Networking-Project.md#22-vlan-and-ip-scheme)
 *   **Security:** [e.g., Basic Access Control Lists (ACLs), Port Security]
-*   **Devices Used:** [e.g., Cisco 2960 Switches, Cisco 1941 Routers, End Devices]
+*   **Devices Used:** [Go to Devices](/docs/Norbetino-Networking-Project.md#21-hardware--devices)
 
 ## 🎯 Learning Objective
 As I transition from Network Engineering into Penetration Testing, understanding how networks are built is critical for understanding how they can be compromised. This lab demonstrates my foundational knowledge of network architecture.
