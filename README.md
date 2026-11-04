@@ -15,7 +15,7 @@ This repository contains a simulated network infrastructure built using Cisco Pa
 ## 🛠️ Technologies & Concepts Implemented
 *   **Routing & Switching:** [Go to VLAN And IP Schemeing](docs/Norbetino-Networking-Project.md#22-vlan-and-ip-scheme)
 *   **IP Addressing:** [Go to VLAN And IP Schemeing](docs/Norbetino-Networking-Project.md#22-vlan-and-ip-scheme)
-*   **Security:** [e.g., Basic Access Control Lists (ACLs), Port Security]
+*   **Security:** [Go to ACLs](configs/ACLs-summary.txt) and [Go to CLI](configs/CLI-summary.txt) 
 *   **Devices Used:** [Go to Devices](/docs/Norbetino-Networking-Project.md#21-hardware--devices)
 
 ## 🎯 Learning Objective
