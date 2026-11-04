@@ -13,7 +13,7 @@ This repository contains a simulated network infrastructure built using Cisco Pa
 ![Network Topology](./images/Norbetinos-Network-Setup-Topology.png)
 
 ## 🛠️ Technologies & Concepts Implemented
-*   **Routing & Switching:** [Go to VLAN And IP Schemeing](docs/Norbetino-Networking-Project.md#22-vlan-and-ip-scheme)
+*   **Routing & Switching:** [Go to Router Configuration](configs/Norbs-Router-running-config.cfg) and [Go to Switch Configuration](docs/Norbetino-Networking-Project.md#22-vlan-and-ip-scheme)
 *   **IP Addressing:** [Go to VLAN And IP Schemeing](docs/Norbetino-Networking-Project.md#22-vlan-and-ip-scheme)
 *   **Security:** [Go to ACLs](configs/ACLs-summary.txt) and [Go to CLI](configs/CLI-session-log.txt) 
 *   **Devices Used:** [Go to Devices](/docs/Norbetino-Networking-Project.md#21-hardware--devices)
